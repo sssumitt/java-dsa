@@ -55,6 +55,7 @@ public class WeightedUndirectedGraph {
   public static void main(String args[]) {
     // no of vertix
     int V = 4;
+    @SuppressWarnings("unchecked")
     ArrayList<Edge> graph[] = new ArrayList[V];
 
     CreatGraph(graph);

@@ -39,7 +39,7 @@ public class nonWeightedUndirectedGraph {
       graph[i] = new ArrayList<Edge>();
 
     }
-    
+
     addEdge(graph, 0, 1);
     addEdge(graph, 0, 2);
 
@@ -63,12 +63,12 @@ public class nonWeightedUndirectedGraph {
 
   }
 
-  public static void bfs(ArrayList<Edge> graph[]) {
+  public static void bfs(ArrayList<Edge> graph[],boolean visited[],int start) {
 
     Queue<Integer> q = new LinkedList<>();
 
-    boolean visited[] = new boolean[graph.length];
-    q.add(0);
+  
+    q.add(start);
 
     while (q.size() != 0) {
 
@@ -103,6 +103,7 @@ public class nonWeightedUndirectedGraph {
     for (int i = 0; i < graph[curr].size(); i++) {
 
       Edge e = graph[curr].get(i);
+      //base case
       if (vis[e.dest] == false)
         dfs(graph, e.dest, vis);
 
@@ -113,32 +114,43 @@ public class nonWeightedUndirectedGraph {
   public static void main(String args[]) {
     // no of vertix
     int V = 7;
-
+    @SuppressWarnings("unchecked")
     ArrayList<Edge> graph[] = new ArrayList[V];
 
-     /* 
-           1---- 3
-         /       | \
-        0       |   5 --6
-        \      |  /
-          2 ---4
-           */  
+
+     
 
     CreatGraph(graph);
+    boolean vis[] = new boolean[V]; 
 
-    // print 2's neighbour
-    // for(int i =0 ;i < graph[2].size(); i++) {
-    // Edge e = graph[2].get(i);
-    // System.out.println("dest-> "+e.dest+" src->" +e.src);
+    
 
-    // }
+  
 
-    bfs(graph);
+
+    //for non-connected graphs
+    for(int i=0; i<V ;i++) {
+      if(vis[i]==false) {
+        bfs(graph,vis,i);
+      }
+    }
+
 
     System.out.println();
-    boolean vis[] = new boolean[V];
 
-    dfs(graph, 0, vis);
+    boolean vis1[] = new boolean[V];
+
+
+    //for non-connected graphs
+    for(int i=0; i< V ; i++) { 
+      if(vis1[i]==false) {
+        dfs(graph, i, vis1);
+      } 
+
+    }
+
+    System.out.println();
+
 
   }
 }

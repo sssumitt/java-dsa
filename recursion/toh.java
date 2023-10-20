@@ -4,10 +4,13 @@ import java.util.*;
 
 public class toh {
     public static void main(String []args) {
+        System.out.println("Enter the size of toh: ");
         Scanner sc =new Scanner(System.in);
         TOH(sc.nextInt(), "S", "H", "D");
         sc.close();
+
     }
+
     static int i =1 ; 
 
     public static void TOH(int n , String s , String h, String d) {
