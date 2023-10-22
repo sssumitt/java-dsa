@@ -1,4 +1,5 @@
-package back_tracking;
+package back_tracking.chess;
+
 import java.util.*;
 
 

@@ -1,10 +1,11 @@
-package back_tracking;
+package back_tracking.chess;
 
 import java.util.Scanner;
 
 public class n_queen_col_vary {
 
     public static boolean isSafe(char[][]board,int row, int col) {
+
         int n= board.length;
          // check row
          for (int j = 0; j < n; j++) {
@@ -47,6 +48,7 @@ public class n_queen_col_vary {
     }
 
     public static void nQueens(char[][] board, int col) {
+    
         int n = board.length;
 
         // base case
